@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DA "TAOHU" SHOP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper scaling on mobile -->
+    <style>
+        body {
+            background-color: black; /* Sets the entire page background to black */
+            color: white;            /* Ensures text is visible on a black background */
+            font-family: Arial, sans-serif; /* Sets a readable font */
+            margin: 0;              /* Removes default margin */
+            padding: 0;             /* Removes default padding */
+        }
+
+        .box {
+            border: 2px solid white; /* Creates the border */
+            padding: 10px;           /* Adds space inside the box */
+            width: 90%;              /* Adjusts the box size to fit smaller screens */
+            margin: 20px auto;       /* Centers the box horizontally */
+            text-align: center;      /* Centers the text inside the box */
+            background-color: rgb(0, 0, 0);  /* Sets the box background color */
+            color: white;            /* Sets the text color inside the box */
+        }
+
+        .menu-grid {
+            display: grid;           /* Enables grid layout */
+            grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
+            gap: 20px;               /* Adds space between grid items */
+            list-style: none;        /* Removes bullet points from the list */
+            padding: 0;              /* Removes default padding */
+        }
+
+        .menu-item {
+            text-align: center;      /* Centers text inside each grid item */
+        }
+
+        .decorative-img {
+            display: block;          /* Ensures the image is displayed as a block */
+            margin: 0 auto 10px;     /* Centers the image horizontally and adds spacing below */
+            width: 150px;            /* Adjust the width of the image */
+            height: auto;            /* Maintain aspect ratio */
+        }
+
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .order-button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .order-button:hover {
+            background-color: gray;
+            color: white;
+        }
+
+        /* Media query for smaller screens (phones) */
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+            }
+
+            .decorative-img {
+                width: 100px; /* Smaller image size for phones */
+            }
+
+            .box {
+                width: 95%; /* Adjust box width for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-grid {
+                grid-template-columns: 1fr; /* 1 column for very small screens */
+            }
+
+            .decorative-img {
+                width: 80px; /* Even smaller image size for very small screens */
+            }
+        }
+    </style>
+    <script>
+        function confirmOrder(event) {
+            // Prevent form submission if the user cancels
+            if (!confirm("Are you sure you want to submit your order?")) {
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="box">
+        <h1>DA "TAOHU" SHOP</h1>
+        <p>Open 10:00-22:00</p>
+    </div>
+
+    <div class="box">
+        <h2>M A N U</h2>
+        <form action="submit-order.html" method="post" onsubmit="confirmOrder(event)">
+            <ul class="menu-grid">
+                <li class="menu-item">
+                    <img src="hot-taohu.jpg" alt="Hot Taohu" class="decorative-img">
+                    HOT TAOHU ------ 30฿
+                    <br>
+                    Quantity: 
+                    <input type="number" name="hot-taohu-quantity" class="quantity-input" min="0" value="0">
+                </li>
+                <li class="menu-item">
+                    <img src="nom-sod.jpg" alt="Nom Sod" class="decorative-img">
+                    NOM SOD ------ 20฿
+                    <br>
+                    Quantity: 
+                    <input type="number" name="nom-sod-quantity" class="quantity-input" min="0" value="0">
+                </li>
+                <li class="menu-item">
+                    <img src="tao-tung.jpg" alt="Tao Tung" class="decorative-img">
+                    TAO TUNG ------ 25฿
+                    <br>
+                    Quantity: 
+                    <input type="number" name="tao-tung-quantity" class="quantity-input" min="0" value="0">
+                </li>
+                <li class="menu-item">
+                    <img src="green-tea.jpg" alt="Green Tea" class="decorative-img">
+                    GREEN TEA ------ 35฿
+                    <br>
+                    Quantity: 
+                    <input type="number" name="green-tea-quantity" class="quantity-input" min="0" value="0">
+                </li>
+                <li class="menu-item">
+                    <img src="coffee.jpg" alt="Coffee" class="decorative-img">
+                    COFFEE ------ 40฿
+                    <br>
+                    Quantity: 
+                    <input type="number" name="coffee-quantity" class="quantity-input" min="0" value="0">
+                </li>
+                <li class="menu-item">
+                    <img src="milk-tea.jpg" alt="Milk Tea" class="decorative-img">
+                    MILK TEA ------ 30฿
+                    <br>
+                    Quantity: 
+                    <input type="number" name="milk-tea-quantity" class="quantity-input" min="0" value="0">
+                </li>
+            </ul>
+            <button type="submit" class="order-button">Submit Order</button>
+        </form>
+    </div>
+
+</body>
+</html>
